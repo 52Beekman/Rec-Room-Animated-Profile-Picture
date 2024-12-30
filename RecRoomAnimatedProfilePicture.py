@@ -1,14 +1,12 @@
 ''' Stuff you need to update for this to work '''
 'Enter your username here'
-user = ''
+user = 'csgroup'
 'Enter your password here'
-passwd = ''
+passwd = 'csgsMp17892'
 
 
 
-image1 = '2d83af05944d49c69fa9565fb238a91b.jpg'
-image2 = '49b2788b672e4088a25eb0a9eff35c17.jpg'
-image3 = '355c2c7e87f0489bb5f0308cdec108f6.jpg'
+image1 = 'https://media-hosting.imagekit.io//43e03334995a4948/CSG_Round.png?Expires=1735690493&Key-Pair-Id=K2ZIVPTIP2VGHC&Signature=q20n-UI5JPXqwYd9S5YtlcsONchpwUYN8LarF8C2gigFETv31VVht4h-tgoArrXGgQKY7dL~JMh-Mt1PD0AQOu0~66Tx77ILwCMkf11y4mxzMWIW0elrQaMpLLIgK~qPsWY6TipKHZZDBilCX-T8nTU0MpnPDetihigS6SXKPUXyPDPGh8AW3so6lkcryZtdR6NAXo4msgAByicx-Uq5RDtqsl5UuNSHMzkv9ytf0J4XZhm8tFl483naYVbBG8I0sMduoNwxVK7QsvHUEw0JUzO60ExwX878KyAu-j12-0~oRU8hhQq4HTpperZQZb2t-gmIOuTaFdaIPJMa8Er1Kw__'
 " ^ You need to change EACH of these to whatever you want the 3 pics to be (Currently set to a waving red zigzag)"
 
 ''' Stuff that will change how the program works '''
@@ -36,8 +34,6 @@ BToken = ''
 
 ''' Making the strings into the format read by the rec.net image api '''
 imageName1 = 'imageName=' + image1
-imageName2 = 'imageName=' + image2
-imageName3 = 'imageName=' + image3
 
 ''' Initial token request '''
 BToken = login.access_token
@@ -66,26 +62,7 @@ while 1 == 1:
         r = requests.put('https://accounts.rec.net/account/me/profileImage', headers = Headers, data = imageName1)
         print(str(r) + " num of requests: " + str(x))
         time.sleep(speed)
-    def i2():
-        r = requests.put('https://accounts.rec.net/account/me/profileImage', headers = Headers, data = imageName2)
-        print(str(r) + " num of requests: " + str(x))
-        time.sleep(speed)
-    def i3():
-        r = requests.put('https://accounts.rec.net/account/me/profileImage', headers = Headers, data = imageName3)
-        print(str(r) + " num of requests: " + str(x))
-        time.sleep(speed)
-    
-    ''' In this default format, it will show image 1 first, then image 2, then image 3, then image 2 again and will LOOP this. The x value in the function calls is to make the counter function, if you don't add it to your function calls or you delete them, THE COUNTER WILL NOT WORK. '''
-    x = x + 1
-    i1()
-    x = x + 1
-    i2()
-    x = x + 1
-    i3()
-    x = x + 1
-    i2()
-    
-    
+
     ''' Requests a new auth token when that one is no longer valid '''
     r = requests.put('https://accounts.rec.net/account/me/profileImage', headers = Headers)
 
